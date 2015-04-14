@@ -177,7 +177,7 @@ let g:turbux_command_rspec  = 'zeus rspec'
 map <leader>rz :let g:turbux_command_rspec = 'zeus rspec'<cr>
 map <leader>rnz :let g:turbux_command_rspec = 'rspec'<cr>
 
-"when using a dev bulid of zeus
+"when using a dev build of zeus
 map <leader>rlz :let g:turbux_command_rspec = '~/.go/src/github.com/burke/zeus/build/zeus rspec'<cr>
 
 map <leader>R :w<cr>:VimuxPromptCommand<cr>
