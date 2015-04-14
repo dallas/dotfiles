@@ -1,28 +1,39 @@
-task :default do
-  dest = ENV["HOME"]
-  force = (ENV["FORCE"] == "true") ? true : false
+$skip_warned = false
 
-  #init and update submodules
+task :default do
+  # init and update submodules
   puts "Getting submodules"
   puts `git submodule update --init --recursive`
 
-  # Copy over dotfiles
-  puts "Copying dotfiles"
-  files = Dir["*"].reject do |file|
-    ["Rakefile", "README.markdown"].include?(file)
-  end
+  # Link dotfiles
+  puts "Linking dotfiles"
+  files = Dir[".*"].reject { |file|
+    next true if file =~ /\.swp\z/
+    %w[ . .. .git .gitignore .gitmodules ].include?(file)
+  }
+  link_files files, ENV["HOME"]
 
-  skip_warned = false
+  puts "", "Run rake with FORCE=true to forcibly overwrite skipped files." if $skip_warned
+end
+
+def link_files(files, destination)
+  force       = ENV["FORCE"] == "true"
+  warn_if_any_files_exist_in_destination(files, destination)
   files.each do |file|
     begin
-      FileUtils.ln_s(File.join(FileUtils.pwd, file), File.join(dest, ".#{file}"), :force => force)
+      dest_file = File.join(destination, file)
+      FileUtils.ln_s(File.join(FileUtils.pwd, file), dest_file, force: force)
+      puts "  Linked #{file} => #{dest_file}"
     rescue StandardError
-      unless skip_warned
-        puts "Run rake with FORCE=true to overwrite all linked files."
-        skip_warned = true
-      end
-      puts "Skipped #{file}."
+      puts "  Skipped #{file} (already exists)"
     end
   end
-
 end
+
+def warn_if_any_files_exist_in_destination(files, destination)
+  return if $skip_warned
+  $skip_warned = files.any? { |file| 
+    File.exist? File.join(destination, file)
+  }
+end
+

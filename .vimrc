@@ -119,6 +119,9 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+" Set up NERDCommenter
+let g:NERDSpaceDelims = 1
+
 " Setup Solarized
 set background=dark
 let g:solarized_visibility = 'high'
@@ -243,3 +246,4 @@ let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 
 " Make ctrlp work with nested git reops
 let g:ctrlp_working_path_mode = 0
+
