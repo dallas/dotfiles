@@ -9,6 +9,7 @@ alias showdesktop='defaults write com.apple.finder CreateDesktop true && killall
 # Shell commands
 alias @='pwd'
 alias l='lsa'
+alias edit='vim'
 
 # Zeus
 alias z='zeus'
