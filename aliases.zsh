@@ -9,7 +9,6 @@ alias showdesktop='defaults write com.apple.finder CreateDesktop true && killall
 # Shell commands
 alias @='pwd'
 alias l='lsa'
-alias edit='vim'
 
 # Zeus
 alias z='zeus'
@@ -53,7 +52,7 @@ alias gcb='git checkout -b' # creates a new branch and switched to it
 alias gci='git commit --verbose'
 # alias gco='git checkout'
 # alias gcp='git cherry-pick'
-alias gdf='git diff | edit'
+alias gdf='git diff'
 alias gfh='git fetch --verbose --prune'
 # alias glg='git log'
 alias gmg='git merge'
