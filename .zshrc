@@ -40,12 +40,12 @@ plugins=(ruby rails osx bundler git brew npm node bower gem zsh-syntax-highlight
 source $ZSH/oh-my-zsh.sh
 
 # Powerline path setup
-export PYTHONPATH=$PYTHONPATH:~/.dotfiles/vim/bundle/powerline
-export PATH=$PATH:~/.dotfiles/vim/bundle/powerline/scripts
+export PYTHONPATH=$PYTHONPATH:~/.vim/bundle/powerline
+export PATH=$PATH:~/.vim/bundle/powerline/scripts
 
 # Wire in Powerline
 powerline-daemon -q
-. $HOME/.dotfiles/vim/bundle/powerline/powerline/bindings/zsh/powerline.zsh
+. $HOME/.vim/bundle/powerline/powerline/bindings/zsh/powerline.zsh
 
 # Customize to your needs...
 unsetopt auto_name_dirs
