@@ -5,6 +5,11 @@ task :default do
   puts "Getting submodules"
   puts `git submodule update --init --recursive`
 
+  # Link oh-my-zsh custom files
+  puts "Linking oh-my-zsh custom files"
+  zsh_dest = File.join(ENV["HOME"], ".dotfiles", "oh-my-zsh", "custom")
+  link_files %w[ aliases.zsh projects.zsh ], zsh_dest
+
   # Link dotfiles
   puts "Linking dotfiles"
   files = Dir[".*"].reject { |file|
