@@ -40,7 +40,7 @@ won't look as nice)
 7. You may want to copy the config files for Powerline and customize them as you desire.
 
         mkdir ~/.config
-        cp -R ~/.dotfiles/vim/bundle/powerline/powerline/config_files/* ~/.config/powerline
+        cp -R ~/.vim/bundle/powerline/powerline/config_files/* ~/.config/powerline
 
 8. Change your shell to zsh (optional) `chsh -s /bin/zsh`
 
