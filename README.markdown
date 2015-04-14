@@ -1,11 +1,10 @@
-Nick's Dotfiles - README
-=======================
+# Dallas’ Dotfiles - README
 
 This is just a collection of my personal dot files. Vim plugins are managed
 using git submodules
 
-Install
--------
+## Install
+
 1. First be sure you have the necessary dependencies installed. On Debian
 you would run:
 
@@ -18,12 +17,11 @@ you would run:
         brew install the_silver_searcher #better Ack (provides the 'ag' command)
         brew install reattach-to-user-namespace #To fix tmux issues with OSX (launchctrl, copy/paste, etc)
 
-2. Install ruby (I recommend either [rbenv](http://rbenv.org/) or
-[rvm](http://beginrescueend.com/) to manage your rubies)
+1. Install ruby (I recommend [rbenv](http://rbenv.org/) to manage your rubies)
 
-3. Then run the following commands:
+1. Then run the following commands:
 
-        git clone https://github.com/NickClark/dotfiles.git ~/.dotfiles
+        git clone https://github.com/dallas/dotfiles.git ~/.dotfiles
         cd ~/.dotfiles
         rake
 
@@ -33,7 +31,7 @@ won't look as nice)
 
 5. Build YouCompleteMe
 
-        cd ~/.dotfiles/vim/bundle/YouCompleteMe && ./install.sh
+        cd ~/.vim/bundle/YouCompleteMe && ./install.sh
 
 6. Build ctrlp-cmatcher (much faster ctrlp)
 
@@ -41,7 +39,7 @@ won't look as nice)
 
 7. You may want to copy the config files for Powerline and customize them as you desire.
 
-        mkdir ~/.config/powerline
+        mkdir ~/.config
         cp -R ~/.dotfiles/vim/bundle/powerline/powerline/config_files/* ~/.config/powerline
 
 8. Change your shell to zsh (optional) `chsh -s /bin/zsh`
@@ -53,6 +51,7 @@ version of python. Found an answer [here](http://superuser.com/questions/440981/
 
 If you get zsh auto complete errors, make sure permissions are correct.
 
-        compaudit                     #Discover what files are issues
-        chmod -R go-w ~/.oh-my-zsh    #Fix them
-        rm -f ~/.zcompdump*; compinit #Reload them (or restart the terminal session)
+        compaudit                     # Discover what files are issues
+        chmod -R go-w ~/.oh-my-zsh    # Fix them
+        rm -f ~/.zcompdump*; compinit # Reload them (or restart the terminal session)
+
