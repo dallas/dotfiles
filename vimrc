@@ -42,6 +42,15 @@ set incsearch   " incremental searching
 set ignorecase  " searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
 
+
+""
+"" Windows & Tabs
+""
+
+set splitright  " vertical splits open on right side instead of left
+set splitbelow  " horizontal splits open below instead of above
+
+
 ""
 "" Wild settings
 ""
