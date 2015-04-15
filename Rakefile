@@ -12,21 +12,20 @@ task :default do
 
   # Link dotfiles
   puts "Linking dotfiles"
-  files = Dir[".*"].reject { |file|
-    next true if file =~ /\.swp\z/
-    %w[ . .. .git .gitignore .gitmodules ].include?(file)
+  files = Dir["*"].reject { |file|
+    %w[ aliases.zsh projects.zsh Rakefile README.md oh-my-zsh ].include?(file)
   }
-  link_files files, ENV["HOME"]
+  link_files files, ENV["HOME"], "."
 
   puts "", "Run rake with FORCE=true to forcibly overwrite skipped files." if $skip_warned
 end
 
-def link_files(files, destination)
+def link_files(files, destination, prefix="")
   force       = ENV["FORCE"] == "true"
   warn_if_any_files_exist_in_destination(files, destination)
   files.each do |file|
     begin
-      dest_file = File.join(destination, file)
+      dest_file = File.join(destination, "#{prefix}#{file}")
       FileUtils.ln_s(File.join(FileUtils.pwd, file), dest_file, force: force)
       puts "  Linked #{file} => #{dest_file}"
     rescue StandardError
