@@ -26,6 +26,7 @@ def link_files(files, destination, prefix="")
   files.each do |file|
     begin
       dest_file = File.join(destination, "#{prefix}#{file}")
+      raise StandardError if File.exists?(dest_file)
       FileUtils.ln_s(File.join(FileUtils.pwd, file), dest_file, force: force)
       puts "  Linked #{file} => #{dest_file}"
     rescue StandardError
@@ -37,7 +38,7 @@ end
 def warn_if_any_files_exist_in_destination(files, destination)
   return if $skip_warned
   $skip_warned = files.any? { |file| 
-    File.exist? File.join(destination, file)
+    File.exists? File.join(destination, file)
   }
 end
 
