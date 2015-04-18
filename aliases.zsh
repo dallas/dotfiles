@@ -10,6 +10,9 @@ alias showdesktop='defaults write com.apple.finder CreateDesktop true && killall
 alias @='pwd'
 alias l='lsa'
 
+# Docker et al
+alias dc='docker-compose'
+
 # Zeus
 alias z='zeus'
 alias zeus='nocorrect zeus'
