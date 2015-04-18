@@ -108,7 +108,7 @@ alias rbserv='ruby -run -e httpd . -p 8000'
 
 # TMUX and pairing
 alias pairnick='ssh -R 3004:localhost:3000 -L 3004:localhost:3000 nick@cornerstone.gitnick.com'
-alias nt='tmux new -s ${PWD##*/}'
+alias nt='tmux new -s ${${PWD##*/}//./-}'
 
 na-espec() {
   echo "rake extensions:run_specs\[$(basename `pwd`)\]"
